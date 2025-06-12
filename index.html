@@ -1,89 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amor 💖</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffdde1;
-            overflow: hidden;
-            position: relative;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #d63384;
-            margin-top: 50px;
-        }
-        p {
-            font-size: 1.5em;
-            color: #555;
-        }
-        button {
-            font-size: 1.5em;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: #ff4081;
-            color: white;
-            transition: 0.3s;
-        }
-        button:hover {
-            background-color: #e91e63;
-        }
-        .heart {
-            position: absolute;
-            color: red;
-            font-size: 20px;
-            animation: float 4s infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(-50); opacity: 1; }
-            100% { transform: translateY(-650px); opacity: 0; }
-        }
-    </style>
+    <title>Saludo con peso</title>
 </head>
 <body>
-    <h1>Para la mas caprichosa💕</h1>
-    <p>Sos lo mejor que me ha pasado y solo quiero recordarte cuánto te amo. 💖</p>
-    <button onclick="mostrarMensaje()">Haz clic aquí</button>
-    <button class="boton" onclick="mostrarMensaje1()">Haz clic aquí otra vez</button>
+    <h2>Ingresá tus datos</h2>
     
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre"><br><br>
+
+    <label for="peso">Peso:</label>
+    <input type="text" id="peso"><br><br>
+
+    <button onclick="saludar()">OK</button>
+
+    <p id="mensaje"></p>
+
     <script>
-        function mostrarMensaje() {
-            alert('Me debes un rapidin en 4! ❤️');
+        function saludar() {
+            const nombre = document.getElementById("nombre").value;
+            const peso = document.getElementById("peso").value;
+            const mensaje = `Hola ${peso}kg, tu peso es ${nombre}.`;
+            document.getElementById("mensaje").textContent = mensaje;
         }
-        
-        function crearCorazon() {
-            let heart = document.createElement('div');
-            heart.innerHTML = '❤️';
-            heart.classList.add('heart');
-            document.body.appendChild(heart);
-            
-            let x = Math.random() * window.innerWidth;
-            let y = window.innerHeight;
-            heart.style.left = x + 'px';
-            heart.style.top = y + 'px';
-            heart.style.fontSize = Math.random() * 30 + 10 + 'px';
-            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-            
-            setTimeout(() => heart.remove(), 4000);
-        }
-        
-        setInterval(crearCorazon, 70);
-    </script>
-     <script>
-        function mostrarMensaje1() {
-            alert('La que lee es gay');
-        }
-        tTimeout(() => heart.remove(), 4000);
-        
-        
-        setInterval(crearCorazon, 500);
     </script>
 </body>
 </html>
